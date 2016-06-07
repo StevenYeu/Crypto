@@ -44,10 +44,22 @@ def is_EC_valid(A,B):
     print('4({})^3 + 27({})^2 = {}'.format(A,B,res))
     return False if res == 0 else True
 
+def is_EC_validMod(A,B,p):
+    res = (4*(A**3) + 27*(B**2)) % p
+    print('4({})^3 + 27({})^2 mod {} = {}'.format(A,B,p,res))
+    return False if res == 0 else True
+
+
 def is_on_EC(x,y,f):
     y_sq = y**2
     x_fun = f(x)
     print('{}^2 = {}'.format(y,x_fun))
+    return True if y_sq == x_fun else False
+
+def is_on_ECMod(x,y,f,p):
+    y_sq = y**2
+    x_fun = f(x) % p
+    print('{}^2 = {} mod {}'.format(y,x_fun,p))
     return True if y_sq == x_fun else False
 
 def doublePoint(x,y,A):
@@ -95,7 +107,6 @@ def kPointMod(k,x,y,A,p):
     res = doublePointMod(x,y,A,p)
     if k > 2:
         for i in range(3,k+1):
-            print("Hi",res[0])
             res = addPointMod(x,y,res[0],res[1],p)
     return res
 
@@ -144,7 +155,5 @@ def latticeReduce(vec1, vec2):
 
 
 
-print(latticeReduce(np.array([90,123]),np.array([56,76])))
-
-
+print(kPointMod(3,5,4,3,47))
 
