@@ -1,7 +1,23 @@
 from sympy import factorint
 from functools import reduce
+from itertools import count, islice
+from math import sqrt
 from fractions import Fraction
 import numpy as np
+
+
+def isPrime(n):
+    return n > 1 and all(n%i for i in islice(count(2), int(sqrt(n)-1)))
+
+def phi(n):
+    if isPrime(n):
+        return n-1
+    else:
+        factors = factorint(n)
+        res = n
+        for f in list(factors.keys()):
+            res = res*(1 - 1/f)
+    return res
 
 
 # code from https://codefights.com/feed/oJoQuXaP2uT2gPjyM
@@ -155,5 +171,4 @@ def latticeReduce(vec1, vec2):
 
 
 
-print(kPointMod(3,5,4,3,47))
-
+print(phi(197))
