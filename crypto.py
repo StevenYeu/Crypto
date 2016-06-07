@@ -102,43 +102,6 @@ def kPointMod(k,x,y,A,p):
 def latticeReduce(vec1, vec2):
     i = 1
     t = float("inf")
-    # print("Iteration {}".format(i))
-    #
-    # print("V1 is {}",vec1)
-    # print("V2 is {}",vec2)
-    #
-    # mag_v1 = np.linalg.norm(vec1)
-    # mag_v2 = np.linalg.norm(vec2)
-    #
-    # print("||v1|| = {}, ||V2|| = {}".format(mag_v1,mag_v2))
-    #
-    # if (mag_v2 < mag_v1):
-    #     tmp = vec1
-    #     vec1 = vec2
-    #     vec2 = tmp
-    #     print("Swaped")
-    # else:
-    #     print("Not Swaped")
-    #
-    #
-    # print("New V1 is {}", vec1)
-    # print("New V2 is {}", vec2)
-    #
-    # u = np.dot(vec1,vec2)/(np.dot(vec1,vec1))
-    # print('u = ({}*{})/(({}*{}) = {}.'.format(vec1,vec2,vec1,vec1,u))
-    #
-    # t = round(u)
-    # print('t = {}'.format(t))
-    #
-    # if t == 0:
-    #     return vec1,vec2
-    # else:
-    #     nextV1 = vec1
-    #     nextV2 = vec2 - (t*vec1)
-    #
-    #     print("Next vec1 is {}".format(nextV1))
-    #     print("Next vec2 is {}".format(nextV2))
-    #     i = 2
 
     while t != 0:
         print("Iteration {}".format(i))
